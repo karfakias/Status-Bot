@@ -3,10 +3,9 @@ import aiohttp
 import asyncio
 from discord.ext import commands
 from datetime import datetime
-import os
 
-TOKEN = os.getenv('DISCORD_BOT_TOKEN')
-CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID', '0'))  # Default to 0 if not set
+TOKEN = 'ODQ2MzIxNjYzMjM3Njg1MjU4.YKt0eA.O1Io_VIfdUJAhiphVobDothpbDI'
+CHANNEL_ID = 854242541255000075  # Replace with your channel ID
 
 # Custom animated emojis (ensure your bot is in the server where these exist)
 ONLINE_EMOJI = "<a:online:854428384171655208>"
