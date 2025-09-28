@@ -3,9 +3,10 @@ import aiohttp
 import asyncio
 from discord.ext import commands
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
-TOKEN = 'ODQ2MzIxNjYzMjM3Njg1MjU4.YKt0eA.O1Io_VIfdUJAhiphVobDothpbDI'
-CHANNEL_ID = 854242541255000075  # Replace with your channel ID
+TOKEN = 'token'
+CHANNEL_ID = id  # Replace with your channel ID
 
 # Custom animated emojis (ensure your bot is in the server where these exist)
 ONLINE_EMOJI = "<a:online:854428384171655208>"
@@ -57,8 +58,10 @@ async def build_embed():
             status_lines.append(f"{name}: {emoji} ({latency}ms)")
         embed.add_field(name=category, value="\n".join(status_lines), inline=False)
 
-    now = datetime.now().strftime("%m/%d/%Y, %I:%M:%S %p")
-    embed.set_footer(text=f"Last updated on {now}")
+    now = datetime.now(tz=ZoneInfo("Europe/Athens"))
+    local_time = now.strftime("%Y-%m-%d %H:%M:%S %Z")
+    embed.set_footer(text=f"Last updated: {local_time}")
+
     return embed
 
 @bot.event
